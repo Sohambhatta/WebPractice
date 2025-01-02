@@ -1,16 +1,17 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #464342;
     margin: 0;
     padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .container {
     width: 80%;
     max-width: 800px;
     margin: 50px auto;
-    background-color: rgb(24, 25, 30);
+    background-color: var(--container-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +19,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #df4a0a;
+    color: var(--highlight-color);
 }
 
 .form {
@@ -31,17 +32,49 @@ h1 {
 .form input, .form select, .form button {
     padding: 10px;
     font-size: 14px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
 }
 
 .form button {
-    background-color: #4CAF50;
-    color: rgb(252, 252, 252);
-    border: none;
+    background-color: var(--button-bg);
     cursor: pointer;
 }
 
 .form button:hover {
-    background-color: #e9900a;
+    background-color: var(--button-hover);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.controls button {
+    padding: 10px;
+    font-size: 14px;
+    background-color: var(--button-bg);
+    border: none;
+    color: var(--text-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background-color: var(--button-hover);
+}
+
+.theme-switcher select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 4px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
 }
 
 table {
@@ -53,36 +86,494 @@ table {
 table th, table td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #ddd;
-    color: rgb(252, 252, 252);
+    border: 1px solid var(--highlight-color);
 }
 
 table th {
-    background-color: #9e9e9d;
+    background-color: var(--highlight-color);
     color: white;
-    
-}
-
-td input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    
-}
-
-td button {
-    padding: 5px 10px;
-    background-color: #ff4c4c;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-td button:hover {
-    background-color: #e04040;
 }
 
 tr.completed td {
     text-decoration: line-through;
     background-color: #fcbea1;
-    color: rgb(0, 0, 0);
+    color: black;
+}
+
+td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: var(--delete-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: var(--delete-hover);
+}
+
+
+
+
+
+
+
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: var(--container-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: var(--highlight-color);
+}
+
+/* Task form styles */
+.form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Task table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--highlight-color);
+}
+
+table th {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+tr.completed td {
+    text-decoration: line-through;
+    background-color: #fcbea1;
+    color: black;
+}
+
+td input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+td button {
+    padding: 5px 10px;
+    background-color: var(--delete-bg);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: var(--delete-hover);
+}
+
+/* Clock Styles */
+#live-clock {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Digital-7", monospace;
+    font-size: 150px; /* Large font size for visibility */
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    z-index: 9999;
+}
+
+/* Theme styles */
+:root {
+    --bg-color: #464342;
+    --container-bg: rgb(24, 25, 30);
+    --text-color: white;
+    --highlight-color: #df4a0a;
+    --button-bg: #4CAF50;
+    --button-hover: #388E3C;
+    --input-bg: #6B6B6B;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+body.light {
+    --bg-color: #f7f7f7;
+    --container-bg: white;
+    --text-color: black;
+    --highlight-color: #0078d7;
+    --button-bg: #0078d7;
+    --button-hover: #005cbf;
+    --input-bg: #e0e0e0;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+body.neon {
+    --bg-color: #000;
+    --container-bg: #1b1b1b;
+    --text-color: #39ff14;
+    --highlight-color: #ff00ff;
+    --button-bg: #ff00ff;
+    --button-hover: #cc00cc;
+    --input-bg: #303030;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+body.solarized {
+    --bg-color: #fdf6e3;
+    --container-bg: #eee8d5;
+    --text-color: #657b83;
+    --highlight-color: #b58900;
+    --button-bg: #268bd2;
+    --button-hover: #2aa198;
+    --input-bg: #93a1a1;
+    --delete-bg: #dc322f;
+    --delete-hover: #cb4b16;
+}
+
+/* Add more themes as needed */
+
+/* Clock Animation */
+@keyframes bubble {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+#live-clock {
+    animation: bubble 1.5s infinite ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Themes */
+:root {
+    --bg-color: #464342;
+    --container-bg: rgb(24, 25, 30);
+    --text-color: white;
+    --highlight-color: #df4a0a;
+    --button-bg: #4CAF50;
+    --button-hover: #388E3C;
+    --input-bg: #6B6B6B;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+/* Light Theme */
+body.light {
+    --bg-color: #f7f7f7;
+    --container-bg: white;
+    --text-color: black;
+    --highlight-color: #0078d7;
+    --button-bg: #0078d7;
+    --button-hover: #005cbf;
+    --input-bg: #e0e0e0;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+/* Neon Theme */
+body.neon {
+    --bg-color: black;
+    --container-bg: #2a2a2a;
+    --text-color: white;
+    --highlight-color: #39ff14;
+    --button-bg: #39ff14;
+    --button-hover: #28cc10;
+    --input-bg: #1c1c1c;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+/* Solarized Theme */
+body.solarized {
+    --bg-color: #002b36;
+    --container-bg: #073642;
+    --text-color: #839496;
+    --highlight-color: #b58900;
+    --button-bg: #268bd2;
+    --button-hover: #268bd2;
+    --input-bg: #073642;
+    --delete-bg: #dc322f;
+    --delete-hover: #cb4b16;
+}
+
+/* Pastel Theme */
+body.pastel {
+    --bg-color: #f8f8f8;
+    --container-bg: #fff8f0;
+    --text-color: #333;
+    --highlight-color: #f7a1b5;
+    --button-bg: #f7a1b5;
+    --button-hover: #f47c93;
+    --input-bg: #f1e6ea;
+    --delete-bg: #f76b6b;
+    --delete-hover: #f54242;
+}
+
+/* Rose Theme */
+body.rose {
+    --bg-color: #ffebeb;
+    --container-bg: #ffccd1;
+    --text-color: #c2185b;
+    --highlight-color: #e91e63;
+    --button-bg: #e91e63;
+    --button-hover: #c2185b;
+    --input-bg: #f8bbd0;
+    --delete-bg: #ff4c4c;
+    --delete-hover: #e04040;
+}
+
+/* Lavender Theme */
+body.lavender {
+    --bg-color: #f4e1f4;
+    --container-bg: #e1b3e1;
+    --text-color: #4e0072;
+    --highlight-color: #9c27b0;
+    --button-bg: #9c27b0;
+    --button-hover: #7b1fa2;
+    --input-bg: #e1bee7;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Aqua Theme */
+body.aqua {
+    --bg-color: #00bcd4;
+    --container-bg: #80deea;
+    --text-color: #00796b;
+    --highlight-color: #00695c;
+    --button-bg: #00796b;
+    --button-hover: #004d40;
+    --input-bg: #e0f7fa;
+    --delete-bg: #ff7043;
+    --delete-hover: #ff5722;
+}
+
+/* Forest Theme */
+body.forest {
+    --bg-color: #2c6b2f;
+    --container-bg: #558b2f;
+    --text-color: #f1f8e9;
+    --highlight-color: #8bc34a;
+    --button-bg: #8bc34a;
+    --button-hover: #7cb342;
+    --input-bg: #4caf50;
+    --delete-bg: #d32f2f;
+    --delete-hover: #c62828;
+}
+
+/* Gold Theme */
+body.gold {
+    --bg-color: #3e2723;
+    --container-bg: #d4af37;
+    --text-color: #f57f17;
+    --highlight-color: #ffeb3b;
+    --button-bg: #ffeb3b;
+    --button-hover: #fbc02d;
+    --input-bg: #fbc02d;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Steel Theme */
+body.steel {
+    --bg-color: #607d8b;
+    --container-bg: #455a64;
+    --text-color: white;
+    --highlight-color: #90a4ae;
+    --button-bg: #78909c;
+    --button-hover: #546e7a;
+    --input-bg: #cfd8dc;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Midnight Theme */
+body.midnight {
+    --bg-color: #263238;
+    --container-bg: #37474f;
+    --text-color: #ffffff;
+    --highlight-color: #009688;
+    --button-bg: #009688;
+    --button-hover: #00796b;
+    --input-bg: #455a64;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Cherry Theme */
+body.cherry {
+    --bg-color: #f44336;
+    --container-bg: #e57373;
+    --text-color: white;
+    --highlight-color: #c2185b;
+    --button-bg: #c2185b;
+    --button-hover: #ad1457;
+    --input-bg: #f8bbd0;
+    --delete-bg: #d32f2f;
+    --delete-hover: #f44336;
+}
+
+/* Blue Sky Theme */
+body.blue-sky {
+    --bg-color: #039be5;
+    --container-bg: #4fc3f7;
+    --text-color: white;
+    --highlight-color: #0288d1;
+    --button-bg: #0288d1;
+    --button-hover: #0277bd;
+    --input-bg: #b3e5fc;
+    --delete-bg: #ff7043;
+    --delete-hover: #ff5722;
+}
+
+/* Vibrant Theme */
+body.vibrant {
+    --bg-color: #9c27b0;
+    --container-bg: #f06292;
+    --text-color: #ffffff;
+    --highlight-color: #e91e63;
+    --button-bg: #e91e63;
+    --button-hover: #c2185b;
+    --input-bg: #f8bbd0;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Sea Breeze Theme */
+body.sea-breeze {
+    --bg-color: #009688;
+    --container-bg: #80cbc4;
+    --text-color: #ffffff;
+    --highlight-color: #004d40;
+    --button-bg: #004d40;
+    --button-hover: #003d33;
+    --input-bg: #80cbc4;
+    --delete-bg: #ff5722;
+    --delete-hover: #e64a19;
+}
+
+/* Dark Matter Theme */
+body.dark-matter {
+    --bg-color: #212121;
+    --container-bg: #424242;
+    --text-color: #eeeeee;
+    --highlight-color: #9c27b0;
+    --button-bg: #9c27b0;
+    --button-hover: #7b1fa2;
+    --input-bg: #616161;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Sandstone Theme */
+body.sandstone {
+    --bg-color: #795548;
+    --container-bg: #a1887f;
+    --text-color: #ffffff;
+    --highlight-color: #fbc02d;
+    --button-bg: #fbc02d;
+    --button-hover: #f57f17;
+    --input-bg: #e0e0e0;
+    --delete-bg: #f44336;
+    --delete-hover: #d32f2f;
+}
+
+/* Electric Theme */
+body.electric {
+    --bg-color: #3f51b5;
+    --container-bg: #303f9f;
+    --text-color: white;
+    --highlight-color: #ff4081;
+    --button-bg: #ff4081;
+    --button-hover: #f50057;
+    --input-bg: #e1bee7;
+    --delete-bg: #ff7043;
+    --delete-hover: #ff5722;
+}
+
+/* Sunset Theme */
+body.sunset {
+    --bg-color: #f57c00;
+    --container-bg: #ff9800;
+    --text-color: white;
+    --highlight-color: #d32f2f;
+    --button-bg: #d32f2f;
+    --button-hover: #c2185b;
+    --input-bg: #fbe9e7;
+    --delete-bg: #ff7043;
+    --delete-hover: #ff5722;
 }

@@ -3,40 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Task Manager</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>To-Do List</h1>
+        <h1>Task Manager</h1>
+
+        <!-- Controls for theme and clearing tasks -->
+        <div class="controls">
+            <button id="clear-all-tasks">Clear All Tasks</button>
+            <div class="theme-switcher">
+                <label for="theme-selector">Select Theme:</label>
+                <select id="theme-selector">
+                    <option value="default">Default</option>
+                    <option value="light">Light</option>
+                    <option value="neon">Neon</option>
+                    <option value="solarized">Solarized</option>
+                    <option value="pastel">Pastel</option>
+                    <option value="rose">Rose</option>
+                    <option value="lavender">Lavender</option>
+                    <option value="aqua">Aqua</option>
+                    <option value="forest">Forest</option>
+                    <option value="gold">Gold</option>
+                    <option value="steel">Steel</option>
+                    <option value="midnight">Midnight</option>
+                    <option value="cherry">Cherry</option>
+                    <option value="blue-sky">Blue Sky</option>
+                    <option value="vibrant">Vibrant</option>
+                    <option value="sea-breeze">Sea Breeze</option>
+                    <option value="dark-matter">Dark Matter</option>
+                    <option value="sandstone">Sandstone</option>
+                    <option value="electric">Electric</option>
+                    <option value="sunset">Sunset</option>
+                </select>
+            </div>
+        </div>
 
         <!-- Form to add a new task -->
         <div class="form">
-            <input type="text" id="subject" placeholder="Subject" required>
-            <input type="date" id="dueDate" required>
-            <select id="importance">
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
+            <input type="text" id="task-name" placeholder="Task Name" required>
+            <input type="date" id="task-due-date" required>
+            <select id="task-importance">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
             </select>
-            <button id="addBtn">Add Task</button>
+            <button id="add-task">Add Task</button>
         </div>
 
         <!-- Table to display tasks -->
-        <table id="todoTable">
+        <table id="task-table">
             <thead>
                 <tr>
-                    <th>Completed</th>
-                    <th>Subject</th>
+                    <th>Task</th>
                     <th>Due Date</th>
                     <th>Importance</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Task rows will appear here -->
+            <tbody id="task-list">
+                <!-- Tasks will be added here -->
             </tbody>
         </table>
+    </div>
+
+    <!-- Live Clock Section -->
+    <div id="live-clock" class="clock-container">
+        <span id="clock-time"></span>
+        <select id="timezone-selector">
+            <option value="GMT">GMT</option>
+            <option value="America/New_York">New York</option>
+            <option value="Europe/London">London</option>
+            <option value="Asia/Tokyo">Tokyo</option>
+            <option value="Australia/Sydney">Sydney</option>
+        </select>
     </div>
 
     <script src="script.js"></script>
